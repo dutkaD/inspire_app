@@ -2,8 +2,10 @@ import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
 
 void main() {
 
+  var ascendingSort = false;
   var inspirationService = InspirationService();
-  inspirationService.getInspiringQuotes();
+  var quotes = inspirationService.getInspiringQuotes();
+  inspirationService.sortQuotesByRank(quotes, ascendingSort);
 
   // runApp(const MyApp());
 }
