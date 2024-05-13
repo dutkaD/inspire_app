@@ -1,4 +1,4 @@
-import 'package:daily_quotes_app/repository/repository.dart';
+enum RankLevel { top, average, mediocre }
 
 class InspirationalQuote {
   String text;
@@ -7,8 +7,30 @@ class InspirationalQuote {
 
   InspirationalQuote(this.text, this.author, this.rank);
 
-  String get tag {
-    // todo: check if there is a tag assigned to an author, otherwise return "general"
-    return QuoteRepository.getTag(author) ?? "general";
+  // TODO 1.1: complete getter that returns a RankLevel of the quote
+  // top >= 10
+  // average >= 5 and < 10
+  // mediocre < 5
+  RankLevel get rankLevel {
+    if (rank >= 10) {
+      return RankLevel.top;
+    } else if (rank >= 5 && rank < 10) {
+      return RankLevel.average;
+    } else {
+      return RankLevel.mediocre;
+    }
   }
+
+  // TODO 1.2: return number of words in text
+  int get wordCount {
+    return text.split(" ").length;
+  }
+
+  // Example getter (demo)
+  int get quoteLength1 {
+    return text.length;
+  }
+
+  // Example getter (demo)
+  int get quoteLength2 => text.length;
 }

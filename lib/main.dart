@@ -1,11 +1,9 @@
-import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
 
 void main() {
+  // try out code here or run the tests
 
-  var ascendingSort = false;
-  var inspirationService = InspirationService();
-  var quotes = inspirationService.getInspiringQuotes();
-  inspirationService.sortQuotesByRank(quotes, ascendingSort);
-
-  // runApp(const MyApp());
+  // FLUTTER! do not uncomment YET!
+  // runApp(
+  //     const MaterialApp(home: Text("Fanciest app of them all"),)
+  // );
 }

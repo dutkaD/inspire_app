@@ -3,7 +3,7 @@ import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('test mapping raw to object', () {
+  test('TODO 2.1 -> test mapping raw quotes to InspirationalQuote', () {
     InspirationService inspirationService = InspirationService();
     List<InspirationalQuote> quotes = inspirationService.getInspiringQuotes();
 
@@ -14,7 +14,7 @@ void main() {
   });
 
 
-  test('test sort by rank: from max to min', () {
+  test('TODO 2.2 -> test sort by rank: from max to min', () {
     InspirationService inspirationService = InspirationService();
     var quotes = inspirationService.getInspiringQuotes();
 
@@ -28,7 +28,7 @@ void main() {
     expect(quotes[9].rank, 12);
   });
 
-  test('test sort by rank: from min to max', () {
+  test('TODO 2.2 -> sort by rank: from min to max', () {
     InspirationService inspirationService = InspirationService();
     var quotes = inspirationService.getInspiringQuotes();
 
@@ -43,7 +43,7 @@ void main() {
   });
 
 
-  test('random quote', () {
+  test('TODO 2.3 -> random quote', () {
     InspirationService inspirationService = InspirationService();
     var quotes = inspirationService.getInspiringQuotes();
 
@@ -53,12 +53,10 @@ void main() {
   });
 
 
-  test('search "in"', () {
+  test('TODO 2.4-> test search "in"', () {
     InspirationService inspirationService = InspirationService();
     var quotes = inspirationService.getInspiringQuotes();
-
     var found = inspirationService.searchText(quotes, "in");
-
     expect(found, isNotNull);
     expect(found.length, 7);
   });

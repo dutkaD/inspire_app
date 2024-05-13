@@ -1,19 +1,30 @@
 import 'package:daily_quotes_app/model/inspirational_quote.dart';
-import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  test('test author has no tag, default to "general" tag', () {
-    InspirationalQuote myQuote = InspirationalQuote("Liegen ist immer gut", "Ronald McDonald", 100);
+  test('TODO 1.1: RankLevel getter returns correct RankLevel for different ranks', () {
+    InspirationalQuote quote1 = InspirationalQuote('Text 1', 'Author 1', 15);
+    InspirationalQuote quote2 = InspirationalQuote('Text 2', 'Author 2', 8);
+    InspirationalQuote quote3 = InspirationalQuote('Text 3', 'Author 3', 3);
+    InspirationalQuote quote4 = InspirationalQuote('Text wer', 'Author 4', 10);
 
-    expect(myQuote.tag, isNotNull);
-    expect(myQuote.tag, "general");
-    });
+    expect(quote1.rankLevel, equals(RankLevel.top));
+    expect(quote2.rankLevel, equals(RankLevel.average));
+    expect(quote3.rankLevel, equals(RankLevel.mediocre));
+    expect(quote4.rankLevel, equals(RankLevel.top));
+  });
 
-  test('test author has a tag, return tag', () {
-    InspirationalQuote myQuote = InspirationalQuote("Something very smart", "Albert Einstein", 5);
 
-    expect(myQuote.tag, isNotNull);
-    expect(myQuote.tag, "science");
+  test('TODO 1.2: Word count getter returns correct word count', () {
+    InspirationalQuote quote1 = InspirationalQuote(
+        'The only way to do great work is to love what you do.', 'Steve Jobs', 8);
+    InspirationalQuote quote2 = InspirationalQuote(
+        'Success is not final, failure is not fatal.', 'Winston Churchill', 9);
+    InspirationalQuote quote3 = InspirationalQuote(
+        'Believe you can and you’re halfway there.', 'Theodore Roosevelt', 7);
+
+    expect(quote1.wordCount, equals(13));
+    expect(quote2.wordCount, equals(8));
+    expect(quote3.wordCount, 7);
   });
 }

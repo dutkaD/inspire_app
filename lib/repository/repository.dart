@@ -19,13 +19,4 @@ class QuoteRepository {
 
     return rawQuotes;
   }
-
-  // Returns a tag if a tag is assigned to the author
-  static String? getTag(String authorName) {
-    const tags = {
-      "Albert Einstein": "science",
-      "Winston Churchill": "politics"
-    };
-    return tags[authorName];
-  }
 }
