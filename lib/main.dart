@@ -1,5 +1,5 @@
 import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
-import 'package:daily_quotes_app/service/quote_card.dart';
+import 'package:daily_quotes_app/quote_card.dart';
 import 'package:flutter/material.dart';
 
 import 'model/inspirational_quote.dart';
