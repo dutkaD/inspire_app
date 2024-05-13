@@ -18,11 +18,19 @@ void main() {
         body: Center(
           child: Column(
             children: [
-              const Text("My favorite quotes"),
+              const Center(
+                  child: Text(
+                "My favorite quotes",
+                style: TextStyle(fontSize: 26),
+              )),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: quotes.map((e) => QuoteCard(title: e.text,)).toList(),
+                children: quotes
+                    .map((e) => QuoteCard(
+                          title: e.text,
+                        ))
+                    .toList(),
               ),
             ],
           ),
