@@ -1,18 +1,18 @@
-import 'package:daily_quotes_app/quote_list.dart';
+import 'package:daily_quotes_app/all_quote_view.dart';
 import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
 import 'package:flutter/material.dart';
 import 'model/inspirational_quote.dart';
 
-class QuoteChoice extends StatefulWidget {
+class QuoteViewer extends StatefulWidget {
   final List<InspirationalQuote> quotes;
 
-  const QuoteChoice({super.key, required this.quotes});
+  const QuoteViewer({super.key, required this.quotes});
 
   @override
-  State<QuoteChoice> createState() => _QuoteChoiceState();
+  State<QuoteViewer> createState() => _QuoteViewerState();
 }
 
-class _QuoteChoiceState extends State<QuoteChoice> {
+class _QuoteViewerState extends State<QuoteViewer> {
   final InspirationService service = InspirationService();
   bool _showAll = true;
 
@@ -53,7 +53,7 @@ class _QuoteChoiceState extends State<QuoteChoice> {
               )),
         ),
         _showAll
-            ? AllQuotesList(quotes: widget.quotes)
+            ? AllQuotesView(quotes: widget.quotes)
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

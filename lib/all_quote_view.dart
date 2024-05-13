@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 
 import 'model/inspirational_quote.dart';
 
-class AllQuotesList extends StatelessWidget {
+class AllQuotesView extends StatelessWidget {
   final List<InspirationalQuote> quotes;
 
-  const AllQuotesList({super.key, required this.quotes});
+  const AllQuotesView({super.key, required this.quotes});
 
   @override
   Widget build(BuildContext context) {
