@@ -8,14 +8,10 @@ void main() {
   var service = InspirationService();
   List<InspirationalQuote> quotes = service.getInspiringQuotes();
 
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-        title: const Text("Inspiration App"),
-      ),
-      body: QuoteViewer(quotes: quotes,)
-    ),
-  ));
+  runApp(
+    MaterialApp(
+        home: QuoteScreen(
+      quotes: quotes,
+    )),
+  );
 }

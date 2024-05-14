@@ -1,23 +1,23 @@
 import 'package:daily_quotes_app/all_quote_view.dart';
+import 'package:daily_quotes_app/random_quote_view.dart';
 import 'package:daily_quotes_app/service/inspirational_quote_service.dart';
 import 'package:flutter/material.dart';
 import 'model/inspirational_quote.dart';
 
-class QuoteViewer extends StatefulWidget {
+class QuoteScreen extends StatefulWidget {
   final List<InspirationalQuote> quotes;
 
-  const QuoteViewer({super.key, required this.quotes});
+  const QuoteScreen({super.key, required this.quotes});
 
   @override
-  State<QuoteViewer> createState() => _QuoteViewerState();
+  State<QuoteScreen> createState() => _QuoteScreenState();
 }
 
-class _QuoteViewerState extends State<QuoteViewer> {
+class _QuoteScreenState extends State<QuoteScreen> {
   final InspirationService service = InspirationService();
   bool _showAll = true;
-
   // we promise that it won't be null
-  late InspirationalQuote quote;
+  late InspirationalQuote randomQuote;
 
   @override
   initState() {
@@ -27,74 +27,35 @@ class _QuoteViewerState extends State<QuoteViewer> {
 
   void updateRandomQuote() {
     setState(() {
-      quote = service.getRandomQuote(widget.quotes);
+      randomQuote = service.getRandomQuote(widget.quotes);
     });
   }
 
-  void toggleShowAll() {
+  void setShowAll(bool showAll) {
     setState(() {
-      _showAll = !_showAll;
+      _showAll = showAll;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton(
-              onPressed: () {
-                toggleShowAll();
-              },
-              child: Text(
-                _showAll ? "Random view" : "All quotes",
-                style: const TextStyle(fontSize: 20),
-              )),
-        ),
-        _showAll
-            ? AllQuotesView(quotes: widget.quotes)
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Card(
-                      color: const Color.fromRGBO(239, 142, 252, 0.2),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            const Text("Random Quote"),
-                            Column(
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      updateRandomQuote();
-                                    },
-                                    icon: const Icon(Icons.rotate_right_sharp)),
-                                Column(
-                                  children: [
-                                    Text(
-                                      quote.text,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(fontSize: 35),
-                                    ),
-                                    Text(
-                                      quote.author,
-                                      style: const TextStyle(color: Colors.white, fontSize: 25),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text("Inspiration App"),
+        actions: [
+          IconButton(onPressed: (){
+            setShowAll(true);
+          }, icon: const Icon(Icons.list, size: 32,)),
+          IconButton(onPressed: (){
+            setShowAll(false);
+          }, icon: const Icon(Icons.autorenew,  size: 32)),
+        ],
+      ),
+      // backgroundColor: Colors.black,
+      body: _showAll
+          ? AllQuotesView(quotes: widget.quotes)
+          : RandomQuotView(quote: randomQuote, onUpdate: (){updateRandomQuote();},),
     );
   }
 }
