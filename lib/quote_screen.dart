@@ -10,6 +10,7 @@ class QuoteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: Text("Inspiration App"),
       ),
       body: ListView(
