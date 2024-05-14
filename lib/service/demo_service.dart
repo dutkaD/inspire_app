@@ -1,3 +1,5 @@
+// Contains some examples, not directly relevant to the tasks
+
 class DemoService {
 
   // Example of a private method

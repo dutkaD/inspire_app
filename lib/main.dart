@@ -1,5 +1,6 @@
 
 void main() {
+  print("Hello world!");
   // try out code here or run the tests
 
   // FLUTTER! do not uncomment YET!

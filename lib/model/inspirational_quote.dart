@@ -12,18 +12,12 @@ class InspirationalQuote {
   // average >= 5 and < 10
   // mediocre < 5
   RankLevel get rankLevel {
-    if (rank >= 10) {
-      return RankLevel.top;
-    } else if (rank >= 5 && rank < 10) {
-      return RankLevel.average;
-    } else {
-      return RankLevel.mediocre;
-    }
+    throw Exception("Not implemented!");
   }
 
   // TODO 1.2: return number of words in text
   int get wordCount {
-    return text.split(" ").length;
+    return -1;
   }
 
   // Example getter (demo)
